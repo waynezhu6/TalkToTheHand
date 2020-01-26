@@ -12,7 +12,15 @@ app.use('/static', express.static(__dirname + '/static'));
 
 // Routing
 app.get('/', function(request, response) {
-  response.sendFile(path.join(__dirname, 'index.html'));
+  response.sendFile(path.join(__dirname, 'Login.html'));
+});
+
+app.use('/index.html',function(req, res,next) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.use('/Login.html',function(req, res,next) {
+  res.sendFile(path.join(__dirname, 'Login.html'));
 });
 
 // Starts the server
