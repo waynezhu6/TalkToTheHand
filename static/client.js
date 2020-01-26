@@ -13,6 +13,7 @@ var pc = new RTCPeerConnection(servers);
 var knn;
 const TOPK = 10;
 var knnPromise = false;
+var captions;
 
 //set PeerConnection attributes and display self-preview video stream on load
 window.addEventListener('load', async function(){
@@ -24,6 +25,7 @@ window.addEventListener('load', async function(){
     
     localVideo = document.getElementById("localVideo");
     remoteVideo = document.getElementById("remoteVideo");
+    captions = document.getElementById("subtitle");
     
     pc.onicecandidate = (event => {
         console.log(event);
@@ -74,9 +76,9 @@ function showLocalVideo(){
     .then(stream => localVideo.srcObject = stream)
     .then(stream => pc.addStream(stream));
 
-    Promise.all([webCamPromise, knnPromise])
+    Promise.all([webCamPromise])
     .then(values => {
-        //this.detectFrame(localVideo, values[0]);
+        detectFrame(remoteVideo, values[0]);
     })
     .catch(error => {
         console.error(error);
@@ -91,11 +93,18 @@ function showRemoteVideo(){
 }
 
 detectFrame = async (video, model) => {
-
-    var tensor = tf.browser.fromPixels(video);
-    var logits = mobilenetModule.infer(tensor, "conv_preds");
-    const res = await knn.predictClass(logits, TOPK);
-    console.log(res.label);
+    
+    if(knnPromise){
+        var tensor = tf.browser.fromPixels(video);
+        var logits = mobilenetModule.infer(tensor, "conv_preds");
+        const res = await knn.predictClass(logits, TOPK);
+        if(res.label == "space"){
+            processSubtitle(" ");
+        }
+        else if(res.label != "nothing"){
+            processSubtitle(res.label[0]);
+        }
+    }
     setTimeout(() => {detectFrame(video, model)}, 200);
 };
 
@@ -105,5 +114,32 @@ async function knnRead(){
     .then(text => {
         knn = knnClassifier.create();
         knn.setClassifierDataset(Object.fromEntries(JSON.parse(text).map(([label, data, shape])=>[label, tf.tensor(data, shape)])));
-    });
+    })
+    .then(() => {knnPromise = true});
+}
+
+var subtitle = "";
+var current = "";
+var next = "";
+function processSubtitle(chr){
+    if(current == ""){
+        current += chr
+    }
+    else{
+        if(chr != current[0]){
+            next += chr;
+        }
+
+        if(next.length >= 3){
+            subtitle += next[0];
+            current = next;
+            next = "";
+        }
+
+        if(subtitle.length >= 10){
+            subtitle = "";
+        }
+        console.log(subtitle);
+        captions.innerHTML = subtitle;
+    }
 }
