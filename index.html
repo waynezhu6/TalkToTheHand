@@ -1,6 +1,16 @@
 <html>
     <head>
+        <title>Video Call</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./static/css/Style.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+        <!-- Font Awesome CDN -->
+        <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
 
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+            integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+        
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
 
         <!-- Load MobileNet -->
@@ -10,15 +20,39 @@
 
         <script src="/socket.io/socket.io.js"></script>        
         <script src ="/static/client.js"></script>
-
     </head>
 
     <body>
-        <div id = "yourID"></div>
+        <!-- <div id = "yourID"></div>
         <input type="text" id="input" placeholder="Enter user to dial!" />
         <button onclick="showRemoteVideo()">Call</button>
 
-        <video id="localVideo" width = 500 height = 500 autoplay muted></video>
-        <video id="remoteVideo" width = 500 height = 500 autoplay></video>
+        <video id="localVideo" width = 227 height = 227 autoplay muted></video>
+        <video id="remoteVideo" width = 500 height = 500 autoplay></video> -->
+
+        <div class="header">
+            <h4><i class="fas fa-american-sign-language-interpreting"></i> Talk to the Hand</h4>
+        </div>
+        <div class="row">
+            <div class="column" align="center">
+                <!-- <video id="yourVideo" autoplay muted></video> -->
+                <video id="localVideo" width=850 height=500 autoplay muted></video>
+            </div>
+            <div class="column" align="center">
+                <!-- <video id="friendsVideo" autoplay></video> -->
+                <video id="remoteVideo" width=850 height=500 autoplay></video>
+                <!-- <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3> -->
+            </div>
+        </div>    
+        <div class="bottom">
+            <!-- <a onclick="#" class="btn-call"><i class="fas fa-microphone-slash"></i></a>
+            <a onclick="#" class="btn-call"><i class="fas fa-phone-slash"></i></a>
+            <a onclick="#" class="btn-call"><i class="fas fa-volume-mute"></i></a> -->
+            <!-- <button onclick="showRemoteVideo()" class="btn-test">Call</button> -->
+            <a onclick="showRemoteVideo()" class="btn-call" ><br><i class="fas fa-phone"></i></a>
+            <a href='Login.html' class="btn-call" ><br><i class="fas fa-phone-slash"></i></a>
+        </div>   
     </body>
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LogIn Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
+
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+    
+</head>
+<body>
+    
+    <!-- <img class="wave" src="./assets/Wave.png"> -->
+    <section class="head">
+        <div class="site-background" data-aos="fade-up" data-aos-delay="100"></div>
+        <div class="container">
+            <!-- <div class="img">
+                <img src="./assets/undraw_Mobile_app_p3ts.svg" alt="">
+            </div> -->
+
+            <div class="col liquid">
+                <h4><i class="fas fa-american-sign-language-interpreting"></i> Talk to the Hand</h4>
+                <!-- Owl-Carousel -->
+                <div class="owl-carousel owl-theme">
+                    <img src="./static/assets/undraw_Mobile_app_p3ts (1).svg" alt="" class="login_img">
+                    <img src="./static/assets/undraw_video_call_kxyp.svg" alt="" class="login_img">
+                    <img src="./static/assets/undraw_taking_selfie_lbo7.svg" alt="" class="login_img">
+                </div>
+
+            </div> 
+            <div class="intro-container" data-aos="fade-right" data-aos-delay="200">
+                <!-- <img src="./assets/Blog-post/post-1.jpg" alt="post-1"> -->
+                <div class="intro">
+                    <h1>Text. Talk. Sign.</h1>
+                    <h4>Talk to the Hand is a revolutionary service that uses machine learning algorithms to read and translate sign language, breaking the barrier between the audibly impaired and the rest of society.</h4>
+                    <button onclick="scroll_down()" class="btn btn-join">Join A Room</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class = "signin">
+        <div class="signin-box">
+            <div class="login-container">
+                <!-- <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" onclick="login()">Log In</button>
+                    <button type="button" onclick="register()">Register</button>
+                </div> -->
+
+                <form id="login" action="Index.html">
+                <!-- <form id="login" method="post" action="reg.php">   -->
+                    <img src="./static/assets/undraw_profile_pic_ic5t.svg" alt="" class="avatar">
+                    <h2>Welcome</h2>
+                    <div class="input-div one ">
+                        <div class="i">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div>
+                            <h5>Room Name</h5>
+                            <input class= "input" type= "text">
+                        </div>
+                    </div>
+                    <div class="input-div two ">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <h5>Password</h5>
+                            <input class= "input" type= "password">
+                        </div>
+                    </div>
+                    <a onclick="register()" >Create a New Room</a>
+                    <br>
+                    <a href='index.html' class='btn-login'>Login</a>
+                    <!-- <input type = "submit" class= "btn" value="Login" onclick="window.location.href = 'Call.html';"> -->
+                </form>
+                <form id="register" action="Index.html">
+                <!-- <form id="register" method="post" action="./static/php/reg.php">  -->
+                    <img src="./static/assets/undraw_profile_pic_ic5t.svg" alt="" class="avatar">
+                    <h2>Register</h2>
+                    <div class="input-div one ">
+                        <div class="i">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div>
+                            <h5>Room Name</h5>
+                            <input class= "input" type= "text">
+                        </div>
+                    </div>
+                    <div class="input-div three ">
+                        <div class="i">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email</h5>
+                            <input class= "input" type= "email">
+                        </div>
+                    </div>
+                    <div class="input-div two ">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <h5>Password</h5>
+                            <input class= "input" type= "password">
+                        </div>
+                    </div>
+                    <a onclick="login()" >Already have a room? Sign in.</a>
+                    <br>
+                    <input type="submit" name="reg" value="REG">
+
+                    <!-- <a href='#' class='btn-login'>Register</a> -->
+                    <input type = "submit" class= "btn" value="Create Account"/>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="./static/js/main.js"></script>
+    <script type="text/javascript"src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+    <script>$(document).ready(function () {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            items: 1
+        });
+
+    });</script>
+    
+
+</body>
+</html>

@@ -1,0 +1,566 @@
+/* {
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+} */
+
+html, body{
+    /* font-family: "Poppins", sans-serif; */
+    /* height: 100%; */
+    overflow-x: hidden;
+    margin:0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+section {
+    top: 0%;
+    margin: 0;
+    width: 100%;
+}
+
+.wave{
+    position: fixed;
+    height:100%;
+    left:0;
+    top:0;
+    bottom:0;
+    z-index:-1;
+}
+
+.container{
+    /* width: 100vw; */
+    height: 150vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: 45% 55%; */
+    
+    grid-gap: 2rem;
+    padding: 0 2rem;
+}
+
+.signin-box{
+    /* width: 93vw; */
+    height: 100vh;
+    display: grid;
+    /* grid-template-columns: 45% 55%; */
+    /* align-items: center;
+    grid-gap: 2rem;
+    padding: 0 2rem; */
+}
+
+/* .img{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} */
+
+.liquid{
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+}
+
+.liquid h4{
+    text-align: left;
+    padding: 0 2rem;
+    color: whitesmoke;
+    font-family: var(--Montserrat);
+}
+
+.owl-carousel{
+    width: 100%;
+    height: 320px;
+    max-height: 330px;
+}
+
+.owl-carousel .owl-item .login_img{
+    float: right;
+    width: 400px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 4rem;
+    padding-right: 5rem;
+
+    transform: translateX(10%);
+    z-index: inherit 0;
+}
+
+.img img{
+    width: 500px;
+}
+
+.login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+.intro-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+.intro{
+    width: 25rem;
+    text-align: right;
+    transform:translateY(-40%);
+}
+
+form{
+    width: 360px;
+}
+
+.avatar{
+    width: 100px;
+}
+
+form h2{
+    font-size: 2.9rem;
+    text-transform: uppercase;
+    margin: 15 0px;
+    color: #333;
+    line-height: 2.6rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.intro h1{
+    font-size: 3rem;
+    line-height: 2.6rem;
+    padding-bottom: 1.5rem;
+    margin: 0;
+}
+.intro h4{
+    font-size: 1rem;
+    margin: 0;
+    font-weight: lighter;
+    padding-bottom: 2rem;
+}
+
+.input-div:after, .input-div:before{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #9796f0;
+    transition: .3s;
+}
+
+.input-div:after{
+    right: 50%;
+}
+
+.input-div:before{
+    left: 50%;
+}
+
+.input-div{
+    position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 13px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.input-div.focus .i i{
+    color: #6f3deb;
+}
+
+.input-div.focus div h5{
+    top: -5px;
+    font-size: 15px;
+}
+
+.input-div.focus:after, .input-div.focus:before{
+    width: 50%;
+}
+
+.input-div.one{
+    margin-top:1rem;
+}
+
+.input-div.two{
+    margin-bottom:2.5rem;
+}
+
+.i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Colour icons */
+.i i{
+    color: #d9d9d9;
+    transition: .3s;
+}
+
+.input-div > div{
+    position: relative;
+    height: 45px;
+}
+
+.input-div > div h5{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-160%);
+    color: #999;
+    font-size: 18px;
+    transition: .3s;
+}
+
+.input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    bottom:0;
+    left:2%;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1rem;
+    color: #555;
+    font-family: "Poppins", sans-serif;
+}
+
+a{
+    display: black;
+    text-align: right;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.9rem;
+    transition: .3s;
+}
+
+/* Forgot password hover */
+a:hover{
+    color: #6f3deb;
+}
+
+.btn{
+    display: black;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    margin: 0.4rem 0;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    background-size: 200%;
+    transition: .5s;
+}
+
+@media screen and (max-width: 1050px){
+    .container{
+        grid-gap: 5rem;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    form{
+        width: 290px;
+    }
+
+    form h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+    }
+
+    .img img{
+        width: 400px;
+    }
+} 
+
+@media screen and (max-width: 700px){
+
+    .container{
+        grid-template-columns: 1fr;
+        height: 250vh;
+    }
+    .wave{
+        display: none;
+    }
+    .login-container{
+        justify-content: center;
+    }
+    .intro{
+        transform:translateY(0%);
+        text-align: center;
+    }
+    .liquid h4{
+        font-size: 3rem;
+        line-height: 2.5rem;
+        text-align: center;
+        padding-top: 5rem;
+        justify-self: center;
+        padding-bottom: 0rem;
+    }
+    .owl-carousel .owl-item .login_img{
+        padding-top: 0rem;
+        align-self: center;
+    }
+    form{
+        width: 240px;
+    }
+} 
+
+@media screen and (max-width: 500px){
+    .owl-carousel .owl-item .login_img{
+        width: 300px;
+        height: 225px;
+        padding-right: 1.2rem;
+    }
+    .btn-login{
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+    }
+
+}
+
+
+
+.owl-dots{
+    position: absolute;
+    padding: 3rem 1.2rem;
+    display: flex !important;
+    flex-direction: column;
+    transform: translateY(-240px);
+}
+
+.owl-dots button{
+    border-radius: 5rem;
+    margin: .3rem 0;
+}
+
+.owl-dots button span{
+    background: #F7F9F9 !important;
+    margin: 0rem .6rem !important;
+}
+
+/* Border around active */
+.owl-dots .active{
+    border: 1px solid #6f3deb !important;
+}
+
+.owl-dots .active span{
+    background: #6f3deb !important;
+    margin: .3rem .5rem !important;
+}
+
+#login{
+    transition: 1s;
+    transform: translateX(50%);
+}
+
+#register{
+    transition: 1s;
+    transform: translateX(500%);
+}
+
+body .head{
+    /* background: url('../assets/wave.png');
+    background-size: cover;
+    height: 110vh;
+    display: flex;
+    justify-content: center; */
+    background: url('../assets/Wave.png');
+    background-size: 50rem;
+    background-repeat: no-repeat;
+}
+
+
+/* Vid Call ----------------------------------------------------------*/
+.row{
+    /* width: 100vw; */
+    /* height: 150vh; */
+
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+    
+    display: flex;
+
+    /* 500px */
+    /* display: grid;
+    grid-template-columns: 1fr; */
+
+    /* grid-template-columns: 45% 55%; */
+    
+    /* grid-gap: 1rem; */
+    /* padding: 0 2rem; */
+    overflow: hidden;
+    background: grey;
+}
+
+.column{
+    margin: 0;
+    height:20rem;
+    width:100%;
+    overflow: hidden;
+    background-color: grey;
+    position: relative;
+    display: grid;
+    justify-items: center;
+    /* align-items: center;
+    text-align: center; */
+}
+
+#localVideo{
+    /* min-width: 100%;
+    min-height: 6rem; */
+    /* border: 2px solid orange; */
+    position: absolute;
+    /* transform: translateX(-50%); */
+    z-index: 1;
+}
+#remoteVideo{
+    /* min-width: 100%;
+    min-height: 6rem; */
+    /* border: 2px solid orange; */
+    position: absolute;
+    /* transform: translateX(-50%); */
+    z-index: 2;
+}
+
+.column h3{
+    position: absolute;
+    background-color: black;
+    font-family: "Poppins", sans-serif;
+    color: whitesmoke;
+    opacity: 70%;
+    z-index: 99;
+    margin: 0;
+    align-self: flex-end;
+    font-size: 1rem;
+}
+
+.header{
+    background: white;
+    background-repeat: no-repeat;
+    margin: 0;
+    align-content: center;
+    padding: 2rem;
+}
+
+.header h4{
+    font-size: 2rem;
+    text-align: center;
+    /* padding-top: 7rem; */
+    justify-self: center;
+    padding-bottom: 0rem;
+    margin:0;
+    font-family: "Poppins", sans-serif;
+    /* color: whitesmoke; */
+    color:  #9796f0;
+   
+}
+
+.bottom{
+    display:flex;
+    justify-content: center;
+    background: white;
+    padding-bottom: 2rem;
+}
+
+
+.btn-call{
+    /* display: black; */
+    text-align: center;
+
+    /* justify-items: center; */
+
+    /* width: 180px;
+    height: 2.2rem;
+    border-radius: 50px; */
+
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    /* line-height: 20px; */
+    line-height: 1.3rem;
+    vertical-align: bottom;
+
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+    cursor: pointer;
+    color: #fff;
+    /* text-transform: uppercase; */
+    font-family: "Poppins", sans-serif;
+    background-size: 200%;
+    transition: .5s;
+    /* align-self: center; */
+    /* transform: translateY(-50%); */
+}
+
+.btn-login{
+    display: black;
+    text-align: center;
+    text-transform: uppercase;
+    /* justify-items: center; */
+
+    border-radius: 50px;
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+    margin:  1rem;
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+    cursor: pointer;
+    color: #fff;
+    /* text-transform: uppercase; */
+    font-family: "Poppins", sans-serif;
+    background-size: 200%;
+    transition: .5s;
+    /* align-self: center; */
+}
+
+
+@media screen and (max-width: 550px){
+    .row{
+        display:grid;
+        grid-template-columns: 1fr;
+    }
+
+    .header h4{
+        line-height: 2.2rem;
+    }
+    /* .bottom{
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    } */
+
+}

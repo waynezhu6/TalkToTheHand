@@ -1,9 +1,5 @@
 var socket = io();
 
-socket.on('chat message', () => {
-    console.log('connected and echoed');
-});
-
 var yourId = Math.floor(100000 + Math.random() * 900000);
 var localVideo;
 var remoteVideo;
@@ -16,20 +12,16 @@ var servers = {'iceServers': [{'urls': 'stun:stun.services.mozilla.com'}, {'urls
 var pc = new RTCPeerConnection(servers);
 var knn;
 const TOPK = 10;
-
-async function load(){
-    knn = knnClassifier.create();
-    mobilenetModule = await mobilenet.load();
-    await knnRead();
-    console.log("model loaded");
-}
+var knnPromise = false;
 
 //set PeerConnection attributes and display self-preview video stream on load
 window.addEventListener('load', async function(){
 
-    await load();
+    knn = knnClassifier.create();
+    mobilenetModule = await mobilenet.load();
+    await knnRead();
+    console.log("model loaded");
     
-    document.getElementById("yourID").innerHTML = "Your User ID: " + yourId;
     localVideo = document.getElementById("localVideo");
     remoteVideo = document.getElementById("remoteVideo");
     
@@ -82,9 +74,9 @@ function showLocalVideo(){
     .then(stream => localVideo.srcObject = stream)
     .then(stream => pc.addStream(stream));
 
-    Promise.all([webCamPromise])
+    Promise.all([webCamPromise, knnPromise])
     .then(values => {
-        this.detectFrame(localVideo, values[0]);
+        //this.detectFrame(localVideo, values[0]);
     })
     .catch(error => {
         console.error(error);
@@ -105,19 +97,7 @@ detectFrame = async (video, model) => {
     const res = await knn.predictClass(logits, TOPK);
     console.log(res.label);
     setTimeout(() => {detectFrame(video, model)}, 200);
-
-    // frame = tf.browser.fromPixels(video);
-    // frame = frame.as4D(-1, 64, 64, 3);
-    // var predictions = model.predict(frame);
-    // predictions = predictions.dataSync();
-    // console.log(predictions);
-    // var i = predictions.indexOf(Math.max(...predictions));
-    // console.log(CLASSES[i]);
-    // //console.log(String.fromCharCode(97 + i));
 };
-
-const CLASSES = ['a', 'b', 'c', 'd', 'del', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
-'m', 'n', 'nothing', 'o', 'p', 'q', 'r', 's', 'space', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 async function knnRead(){
     fetch('/static/knn100.json')
