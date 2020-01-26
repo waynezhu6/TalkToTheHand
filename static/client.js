@@ -109,7 +109,7 @@ detectFrame = async (video, model) => {
 };
 
 async function knnRead(){
-    fetch('/static/knn100.json')
+    fetch('/static/abc1000.json')
     .then(response => response.text())
     .then(text => {
         knn = knnClassifier.create();
