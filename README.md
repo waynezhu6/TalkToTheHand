@@ -1,4 +1,6 @@
-# TalkToTheHand
+# Talk To The Hand
+
+![Live sign language translation](./talkToHand.gif)
 
 Video calling over WebRTC with live sign language translation. Try it out here:
 * [Talk To the Hand](https://testapp-266201.appspot.com/) - Use Room Name 'delta' and password 'hacks'.
