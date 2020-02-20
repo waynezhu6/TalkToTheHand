@@ -36,4 +36,4 @@ In the future, we hope to add more changes, like:
 
 ## Acknowledgments
 
-* Hats off to my hackathon team: Ekagra Luthra, Chloe Nguyen, and Arjun Pandher. Hope to work with you guys again soon!
+* Credits to my hackathon team: Ekagra Luthra, Chloe Nguyen, and Arjun Pandher. Hope to work with you guys again soon!
